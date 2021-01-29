@@ -422,4 +422,6 @@ def polish_to_type(symbols: List[str]) -> WordType:
             stack.append(BoxType(arg, symbol.lstrip('□')))
         else:
             stack.append(AtomicType(symbol))
-    return stack.pop()
+    ret = stack.pop()
+    assert not len(stack)
+    return ret
